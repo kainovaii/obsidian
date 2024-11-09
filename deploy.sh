@@ -34,7 +34,7 @@ if [ $TYPE ]; then
         git commit -m "🚀 Init"
         git branch -M main
         git remote remove origin
-        git remote add origin https://github.com/"$NAME".git
+        git remote add origin https://github.com/kainovaii/"$NAME".git
         git push -u origin master
         echo "⚡️ Task complete"
     fi
