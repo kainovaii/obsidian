@@ -2,6 +2,7 @@
     "name": "kainovaii/my-php-base",
     "description": "Lorem ipsum dolor sit amet, consectetur adipis",
     "type": "project",
+    "version": "1.0",
     "autoload": {
         "files": [
             "./core/Helpers.php"
