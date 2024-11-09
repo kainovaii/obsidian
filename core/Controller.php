@@ -2,7 +2,7 @@
 
 namespace Core;
 
-use Core\Http\Security\Security;
+use Core\Http\Security\Voter\Security;
 use Core\Http\Service\RegisterServiceContainer;
 use Core\Http\User\LoggedUser;
 use Core\Http\User\UserInterface;

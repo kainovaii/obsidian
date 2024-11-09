@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Http\Security;
+namespace Core\Http\Security\Voter;
 
 use Core\Http\User\UserInterface;
 

@@ -22,6 +22,7 @@ class LoginListener
         {
             Service::get()->user->interate($user->getUserIdentifier());
             Service::get()->user->update(['last_login' => new \DateTimeImmutable(), 'login_attempt' => 0]);
+            Service::get()->csrf->removeToken();
         }
     }
     

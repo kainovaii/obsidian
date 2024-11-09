@@ -1,9 +1,8 @@
 <?php
 
-namespace Core\Http\Security;
+namespace Core\Http\Security\Voter;
 
 use App\Http\Security\BlogVoter;
-use App\Http\Security\ContentVoter;
 use Core\Http\User\LoggedUser;
 
 class Security

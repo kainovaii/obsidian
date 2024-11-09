@@ -11,7 +11,7 @@ class AuthService extends UserRepository
 {
     public function authenticate(Request $_resquest): bool
     {
-        if ($_resquest->getBody()['csrf'] === Service::get()->session->get('csrf'))
+        if ($_resquest->getBody()['csrf'] === Service::get()->csrf->getToken())
         {
             $email = (string) $_resquest->getBody()['email'];
             $password = (string) $_resquest->getBody()['password'];

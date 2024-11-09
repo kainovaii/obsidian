@@ -2,7 +2,7 @@
 
 namespace App\Http\Security;
 
-use Core\Http\Security\VoterInterface;
+use Core\Http\Security\Voter\VoterInterface;
 use Core\Http\Service\Service;
 use Core\Http\User\UserInterface;
 

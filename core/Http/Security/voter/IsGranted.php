@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Http\Security;
+namespace Core\Http\Security\Voter;
 
 use application\core\http\users\LoggedUser;
 use Attribute;
