@@ -11,6 +11,7 @@ use App\Domain\Blog\BlogService;
 use App\Domain\Auth\UserService;
 use Core\Http\Listener\EventDispatcher;
 use Core\Http\Listener\ListenerProvider;
+use Core\Http\Security\Csrf;
 use Core\Http\User\LoggedUser;
 use Core\Http\User\UserInterface;
 use App\Domain\Auth\UserRepository;
@@ -29,6 +30,7 @@ class RegisterServiceContainer {
     public BlogRepository $blogRepository;
     public BlogService $blog;
     public EventDispatcher $dispatcher;
+    public Csrf $csrf;
     public static array $_instance = [];
     
     public function __construct()
@@ -48,6 +50,7 @@ class RegisterServiceContainer {
         $this->loggedUser = $container->get(LoggedUser::class);
         $this->blogRepository = $container->get(BlogRepository::class);
         $this->blog = $container->get(BlogService::class);
+        $this->csrf = $container->get(Csrf::class);
     }
 
     public function registerListener(): void

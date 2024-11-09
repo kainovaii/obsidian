@@ -25,8 +25,6 @@ class Csrf
 
     public static function render(): string
     {
-        $csfr = new Csrf();
-        $csfr->generateToken();
-        return sprintf('<input type="hidden" name="csrf" value="%s">', $csfr->getToken());
+        return sprintf('<input type="hidden" name="csrf" value="%s">', Service::get()->csrf->getToken());
     }
 }
