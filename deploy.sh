@@ -32,7 +32,7 @@ if [ $TYPE ]; then
         git init
         git add --all
         git commit -m "🚀 Init"
-        git branch -M main
+        git branch -M master
         git remote remove origin
         git remote add origin https://github.com/kainovaii/"$NAME".git
         git push -u origin master
