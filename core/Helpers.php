@@ -1,5 +1,6 @@
 <?php
 
+use Core\Http\Security\Csrf;
 use Core\Http\Service\Service;
 use Core\Http\User\LoggedUser;
 
@@ -15,4 +16,9 @@ function flashRender(): void
         echo Service::get()->flash->render();
         Service::get()->flash->clear(); 
     }
+}
+
+function getCsrf(): string
+{
+    return Csrf::render();
 }

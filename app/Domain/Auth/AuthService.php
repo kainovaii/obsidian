@@ -11,31 +11,37 @@ class AuthService extends UserRepository
 {
     public function authenticate(Request $_resquest): bool
     {
-        $email = (string) $_resquest->getBody()['email'];
-        $password = (string) $_resquest->getBody()['password'];
-        $user =  $this->getByEmail($email);
-        if ($user)
+        if ($_resquest->getBody()['csrf'] === Service::get()->session->get('csrf'))
         {
-            if ($user->status >= 1)
+            $email = (string) $_resquest->getBody()['email'];
+            $password = (string) $_resquest->getBody()['password'];
+            $user =  $this->getByEmail($email);
+            if ($user)
             {
-                if (password_verify($password, $user->password))
+                if ($user->status >= 1)
                 {
-                    Service::get()->session->set('user', $user);
-                    Service::get()->dispatcher->dispatch(new LoginSuccessEvent($user));
-                    return true;
+                    if (password_verify($password, $user->password))
+                    {
+                        Service::get()->session->set('user', $user);
+                        Service::get()->dispatcher->dispatch(new LoginSuccessEvent($user));
+                        return true;
+                    } else {
+                        Service::get()->flash->error('Sorry incorect password !');
+                        Service::get()->dispatcher->dispatch(new LoginFailureEvent($user));
+                        return false;
+                    }
                 } else {
-                    Service::get()->flash->error('Sorry incorect password !');
-                    Service::get()->dispatcher->dispatch(new LoginFailureEvent($user));
+                    Service::get()->flash->error('Oops! 😖 Ce compte a été bloqué');
                     return false;
                 }
             } else {
-                Service::get()->flash->error('Oops! 😖 Ce compte a été bloqué');
+                Service::get()->flash->error('Sorry this account does not exist');
                 return false;
             }
         } else {
-            Service::get()->flash->error('Sorry this account does not exist');
+            Service::get()->flash->error('Csrf token invalid');
             return false;
-        }    
+        }
     }
 
     public function signout(): bool

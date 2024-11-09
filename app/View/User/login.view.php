@@ -2,6 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-md-5 pt-5">
             <form action="/api/users/login" method="post">
+                <?= getCsrf() ?>
                 <div class="form-group">
                     <label for="">Email</label>
                     <input class="form-control" type="email" name="email">
@@ -14,7 +15,6 @@
                     <input class="btn btn-primary" type="submit">
                 </div>
             </form>
-
         </div>
     </div>
 </div>
