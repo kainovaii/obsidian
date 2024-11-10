@@ -9,22 +9,16 @@
     </div>
     <div class="container mt-3">
         <div class="row">
-            <?php foreach ($articles as $article) { ?>
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <p><strong><?= $article->title ?></strong></p>
-                        <p class="card-text"><?= $article->content ?></p>
-                        <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <a href="/blog/<?= $article->id ?>" class="btn btn-sm btn-outline-secondary">View</a>
-                        </div>
-                        <small class="text-body-secondary"><?= $article->author ?></small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php } ?>
+
+            <template x-data="{articles: <?= htmlspecialchars(json_encode($articles)); ?>}" x-for="article in articles">
+                <js-component 
+                    url="/component/blog-render.html"
+                    styles="default" 
+                    x-data="{ item: article }"
+                />
+            </template>
+
         </div>
     </div>
 </div>
+

@@ -12,7 +12,7 @@ class BlogApiController extends Controller
     public function edit(Request $_request): void
     {
         $this->isGranted(BlogVoter::EDIT, $_request->getBody());
-        $this->blog->interate($_request->getBody()['id']);
+        $this->blog->interact($_request->getBody()['id']);
         $this->blog->update([
             'title' => $_request->getBody()['title'],
             'content' => $_request->getBody()['content']
@@ -26,7 +26,8 @@ class BlogApiController extends Controller
     public function delete(Request $_request): void
     {
         $this->isGranted(BlogVoter::DELETE, $_request->getBody());
-        $this->blog->interate((int)$_request->getBody()['id']);
+
+        $this->blog->interact((int) $_request->getBody()['id']);
         $this->blog->delete();
 
         $this->flash->success("L'article a bien été suprimé");

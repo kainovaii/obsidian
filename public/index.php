@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Api\BlogApiController;
+use App\Http\Api\RoleApiController;
 use App\Http\Controller\BlogController;
 
+use App\Http\Controller\RoleController;
 use App\Http\Middleware\AuthMiddleware;
 use App\Http\Api\UserApiController;
 use App\Http\Controller\HomeController;
@@ -26,5 +28,7 @@ $app->registerController($app, UserController::class);
 $app->registerController($app, UserApiController::class);
 $app->registerController($app, BlogController::class);
 $app->registerController($app, BlogApiController::class);
+$app->registerController($app, RoleController::class);
+$app->registerController($app, RoleApiController::class);
 
 $app->run();

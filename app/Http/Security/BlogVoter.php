@@ -2,6 +2,7 @@
 
 namespace App\Http\Security;
 
+use App\Domain\Role\Service\PolicyService;
 use Core\Http\Security\Voter\VoterInterface;
 use Core\Http\Service\Service;
 use Core\Http\User\UserInterface;
@@ -12,6 +13,13 @@ class BlogVoter implements VoterInterface
     const CREATE = 'create';
     const DELETE = 'delete';
     const EDIT = 'edit';
+
+    private PolicyService $service;
+
+    public function __construct()
+    {
+        $this->service = Service::get()->policyService;
+    }
 
     public function supports(string $permssion, mixed $subject = NULL): bool
     {

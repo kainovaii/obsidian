@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Middleware;
 
 use Core\Http\Middleware\MiddlewareInterface;
-use Core\Http\Service\Service;
 
 final class AuthMiddleware implements MiddlewareInterface
 {

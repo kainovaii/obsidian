@@ -1,0 +1,14 @@
+<div class="col-md-4">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <p><strong x-text="item.title"></strong></p>
+            <p class="card-text"  x-text="item.content"><?= $article->content ?></p>
+            <div class="d-flex justify-content-between align-items-center">
+            <div x-data="{article_url: '/blog/' + item.id}" class="btn-group">
+                <a :href="article_url" class="btn btn-sm btn-outline-secondary">View</a>
+            </div>
+            <small x-text="item.author" class="text-body-secondary"></small>
+            </div>
+        </div>
+    </div>
+</div>

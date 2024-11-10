@@ -9,7 +9,7 @@
       <?php if (Service::get()->loggedUser->getUserIdentifier() == $article->author) { ?>
       <form class="d-flex" action="/api/blog/delete" method="POST">
          <input type="hidden" name="author" value="<?= $article->author ?>">
-         <input type="hidden" name="id" value="<?= $article->slug ?>">
+         <input type="hidden" name="id" value="<?= $article->id ?>">
          <li class="p-2"><a class="btn btn-sm btn-primary" href="/blog/<?= $article->id ?>/edit">Edit</a></li>
          <li class="p-2"><button class="btn btn-sm btn-primary">Delete</button></li>
       </form>

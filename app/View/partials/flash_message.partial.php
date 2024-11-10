@@ -1,7 +1,14 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-7">
-            <?php flashRender(); ?>
-        </div>
-    </div>
+<div id="flash-alert" class="col-md-7 animate__animated animate__fadeIn">
+    <?php flashRender(); ?>
 </div>
+
+<style>
+#flash-alert {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  max-width: 350px;
+}
+</style>
+
+<script>function masquernotification() { document.getElementById("flash-alert").innerHTML="";} window.setTimeout(masquernotification, 2000);</script>

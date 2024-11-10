@@ -19,6 +19,10 @@ use App\Domain\Auth\AuthService;
 use Core\Http\Service\ServiceContainer;
 use Core\Session\Flash;
 use Core\Session\SessionManager;
+use App\Domain\Role\Repository\RoleRepository;
+use App\Domain\Role\Service\RoleService;
+use App\Domain\Role\Repository\PolicyRepository;
+use App\Domain\Role\Service\PolicyService;
 
 class RegisterServiceContainer {
     public UserRepository $userRepository;
@@ -31,6 +35,10 @@ class RegisterServiceContainer {
     public BlogService $blog;
     public EventDispatcher $dispatcher;
     public Csrf $csrf;
+    public RoleRepository $roleRepository;
+    public RoleService $roleService;
+    public PolicyRepository $policyRepository;
+    public PolicyService $policyService;
     public static array $_instance = [];
     
     public function __construct()
@@ -51,6 +59,10 @@ class RegisterServiceContainer {
         $this->blogRepository = $container->get(BlogRepository::class);
         $this->blog = $container->get(BlogService::class);
         $this->csrf = $container->get(Csrf::class);
+        $this->roleRepository = $container->get(RoleRepository::class);
+        $this->roleService = $container->get(RoleService::class);
+        $this->policyRepository = $container->get(PolicyRepository::class);
+        $this->policyService = $container->get(PolicyService::class);
     }
 
     public function registerListener(): void

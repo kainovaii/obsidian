@@ -8,7 +8,7 @@ class BlogService extends Manager
 {
     private int $id;
     
-    public function interate(int $id): void
+    public function interact(int $id): void
     {
         $this->id = $id;
     }
@@ -29,6 +29,7 @@ class BlogService extends Manager
     public function delete(): bool
     {
         return $this->table('blogs')
+            ->where('id', $this->id)
             ->delete();
     }
 }

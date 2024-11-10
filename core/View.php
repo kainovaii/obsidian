@@ -13,6 +13,7 @@ final class View
     private const VIEW_EXTENS = '.view.php';
     private const LAYOUT_EXTENS = '.layout.php';
     private const PARTIAL_EXTENS = '.partial.php';
+    private const COMPONENT_EXTENS = '.component.php';
 
     public function __construct(
         private string $name,
@@ -110,7 +111,6 @@ final class View
     public function __toString(): string
     {
         $content = $this->render_content();
-
         return $this->render($content);
     }
 }
