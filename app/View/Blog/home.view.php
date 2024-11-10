@@ -9,15 +9,13 @@
     </div>
     <div class="container mt-3">
         <div class="row">
-
             <template x-data="{articles: <?= htmlspecialchars(json_encode($articles)); ?>}" x-for="article in articles">
                 <js-component 
-                    url="blog-list-card"
+                    name="blog-list-card"
                     styles="default" 
-                    x-data="{ item: article }"
+                    x-data="{item: article}"
                 />
             </template>
-
         </div>
     </div>
 </div>
