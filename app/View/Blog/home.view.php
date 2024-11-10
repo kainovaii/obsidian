@@ -12,7 +12,7 @@
 
             <template x-data="{articles: <?= htmlspecialchars(json_encode($articles)); ?>}" x-for="article in articles">
                 <js-component 
-                    url="/component/blog-render.html"
+                    url="blog-list-card"
                     styles="default" 
                     x-data="{ item: article }"
                 />
