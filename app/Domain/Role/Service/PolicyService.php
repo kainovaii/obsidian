@@ -3,6 +3,7 @@
 namespace App\Domain\Role\Service;
 
 use Core\Http\Service\Service;
+use Core\ServiceInterface;
 use Illuminate\Database\Capsule\Manager;
 
 class PolicyService extends Manager

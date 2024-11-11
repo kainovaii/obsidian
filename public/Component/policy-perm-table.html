@@ -1,0 +1,24 @@
+<div>
+    <h3 class="text-capitalize">Permissions</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th>Edit</th>
+                <th>Read</th>
+                <th>Create</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template x-data="{permissions: item}" x-for="(permission, index) in permissions">
+            <tr>
+                <td scope="row"><span class="text-capitalize" x-text="index" /></td>
+                <template x-for="(perm, key) in permission">  
+                    <td><span class="text-capitalize" x-text="perm" /></td>
+                </template>
+            </tr>
+            </template>
+        </tbody>
+    </table>    
+</div>
