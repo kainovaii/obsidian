@@ -1,4 +1,4 @@
-<?php use Core\Http\Service\Service ?>
+<?php use Core\Http\Service\Container ?>
 <div class="container mt-3">
    <h2><?= $article->title ?></h2> 
    <p><?= $article->content ?></p>
@@ -6,7 +6,7 @@
       <li class="p-2"><strong><?= $article->author ?></strong></li>
    </ul>
    <ul class="list-inline d-flex p-0">
-      <?php if (Service::get()->loggedUser->getUserIdentifier() == $article->author) { ?>
+      <?php if (Container::get()->loggedUser->getUserIdentifier() == $article->author) { ?>
       <form class="d-flex" action="/api/blog/delete" method="POST">
          <input type="hidden" name="author" value="<?= $article->author ?>">
          <input type="hidden" name="id" value="<?= $article->id ?>">

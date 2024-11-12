@@ -11,8 +11,6 @@ class HomeController extends Controller
     #[Route('/', 'GET', 'default')]
     public function home(Request $_request): View
     {
-        return $this->view('home', 'main', [
-            'users' => $this->userRepository->getAll()
-        ]);
+        return $this->view('home');
     }
 }

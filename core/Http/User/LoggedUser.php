@@ -2,7 +2,7 @@
 
 namespace Core\Http\User;
 
-use Core\Http\Service\Service;
+use Core\Http\Service\Container;
 
 class LoggedUser implements UserInterface {
 
@@ -10,7 +10,7 @@ class LoggedUser implements UserInterface {
     {
         if ($this->isLogged())
         {
-            return Service::get()->session->get('user')->role;
+            return Container::get()->session->get('user')->role;
         }
         return 'visitor';
     }
@@ -19,7 +19,7 @@ class LoggedUser implements UserInterface {
     {
         if ($this->isLogged())
         {
-            return Service::get()->session->get('user');
+            return Container::get()->session->get('user');
         }
         return [];
     }
@@ -28,14 +28,14 @@ class LoggedUser implements UserInterface {
     {
         if ($this->isLogged())
         {
-            return Service::get()->session->get('user')->username;
+            return Container::get()->session->get('user')->username;
         }
         return 'visitor';
     }
     
     public function isLogged(): bool
     {
-        if (isset(Service::get()->session->get('user')->username)) { return true; }
+        if (isset(Container::get()->session->get('user')->username)) { return true; }
         return false;
     }
 }

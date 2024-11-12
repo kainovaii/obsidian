@@ -1,10 +1,10 @@
 <?php
 namespace App\Domain\Auth;
 
-use Illuminate\Database\Capsule\Manager;
+use Core\Repository;
 use Illuminate\Support\Collection;
 
-class UserRepository extends Manager {
+class UserRepository extends Repository {
     public function getAll(): Collection
     {
         return $this->table('users')

@@ -12,7 +12,7 @@ class BlogController extends Controller
     #[Route('/blog', 'GET', 'default')]
     public function home(Request $_request): View
     {
-        $query = $this->blogRepository->getAll();
+        $query = $this->container->blogRepository->getAll();
 
         return $this->view('blog/home', 'main', [
             'articles' => $query
@@ -22,7 +22,7 @@ class BlogController extends Controller
     #[Route('/blog/{id}', 'GET', 'default')]
     public function show(Request $_request): View
     {
-        $query = $this->blogRepository->getSingle($_request->getParams('id'));
+        $query = $this->container->blogRepository->getSingle($_request->getParams('id'));
 
         $this->isGranted(BlogVoter::READ);
         return $this->view('blog/show', 'main', [
@@ -33,7 +33,7 @@ class BlogController extends Controller
     #[Route('/blog/{id}/edit', 'GET', 'auth')]
     public function edit(Request $_request): View
     {
-        $query = $this->blogRepository->getSingle($_request->getParams('id'));
+        $query = $this->container->blogRepository->getSingle($_request->getParams('id'));
 
         $this->isGranted(BlogVoter::EDIT, $query);
         return $this->view('blog/edit', 'main', [

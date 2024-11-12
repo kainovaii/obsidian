@@ -2,10 +2,11 @@
 
 namespace App\Domain\Blog;
 
+use Core\Repository;
 use Illuminate\Database\Capsule\Manager;
 use Illuminate\Support\Collection;
 
-class BlogRepository extends Manager
+class BlogRepository extends Repository
 {
     public function getAll(): Collection
     {

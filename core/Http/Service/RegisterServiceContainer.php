@@ -40,16 +40,6 @@ class RegisterServiceContainer {
     public PolicyService $policyService;
     public static array $_instance = [];
     
-    public function __construct()
-    {
-        $container = new ServiceContainer();
-
-        $this->registerService($container);
-        $this->registerRepository($container);
-        $this->registerOther($container);
-        $this->registerListener();
-    }
-
     public function registerService(ServiceContainer $container): void
     {
         $this->blog = $container->get(BlogService::class);
@@ -83,15 +73,5 @@ class RegisterServiceContainer {
             ->addListener(UserBannedEvent::class, new LoginListener());
 
         $this->dispatcher = new EventDispatcher($listenerProvider);
-    }
-
-    public static function get(): mixed
-    {
-        $class = get_called_class();
-        if(!isset(self::$_instance[$class]))
-        {
-            self::$_instance[$class] = new $class;
-        }
-        return self::$_instance[$class];
     }
 }

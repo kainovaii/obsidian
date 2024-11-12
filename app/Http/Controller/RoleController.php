@@ -13,14 +13,14 @@ class RoleController extends Controller
     public function index(Request $_request): View
     {
         return $this->view('/role/home', 'main', [
-            'roles' => $this->roleRepository->getAll()
+            'roles' => $this->container->roleRepository->getAll()
         ]);
     }
 
     #[Route('/roles/{name}', 'GET', 'auth')]
     public function show(Request $_request): View
     {
-        $query = $this->roleRepository->getSingle($_request->getParams('name'));
+        $query = $this->container->roleRepository->getSingle($_request->getParams('name'));
         return $this->view('/role/show', 'main', [
             'role' => $query
         ]);
@@ -29,10 +29,10 @@ class RoleController extends Controller
     #[Route('/roles/{name}/edit', 'GET', 'auth')]
     public function edit(Request $_request): View
     {
-        $query = $this->roleRepository->getSingle($_request->getParams('name'));
+        $query = $this->container->roleRepository->getSingle($_request->getParams('name'));
         return $this->view('/role/edit', 'main', [
             'role' => $query,
-            'policies' => $this->policyRepository->getAll()
+            'policies' => $this->container->policyRepository->getAll()
         ]);
     }
 }

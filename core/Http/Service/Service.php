@@ -2,9 +2,8 @@
 
 namespace Core\Http\Service;
 
-class Service {
-    public static function get(): RegisterServiceContainer
-    {
-        return RegisterServiceContainer::get();
-    }
+use Illuminate\Database\Capsule\Manager;
+
+class Service extends Manager
+{
 }

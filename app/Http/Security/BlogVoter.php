@@ -4,7 +4,7 @@ namespace App\Http\Security;
 
 use App\Domain\Role\Service\PolicyService;
 use Core\Http\Security\Voter\VoterInterface;
-use Core\Http\Service\Service;
+use Core\Http\Service\Container;
 use Core\Http\User\UserInterface;
 
 class BlogVoter implements VoterInterface
@@ -18,7 +18,7 @@ class BlogVoter implements VoterInterface
 
     public function __construct()
     {
-        $this->service = Service::get()->policyService;
+        $this->service = Container::get()->policyService;
     }
 
     public function supports(string $permssion, mixed $subject = NULL): bool
@@ -31,7 +31,7 @@ class BlogVoter implements VoterInterface
 
     public function voteOnAttribute(UserInterface $user, string $permission, $subject = null): bool
     {
-        $user = Service::get()->loggedUser->getUser();
+        $user = Container::get()->loggedUser->getUser();
 
         switch ($permission) {
             case self::READ:

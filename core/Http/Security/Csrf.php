@@ -2,29 +2,29 @@
 
 namespace Core\Http\Security;
 
-use Core\Http\Service\Service;
+use Core\Http\Service\Container;
 
 class Csrf
 {
     public function generateToken(): string
     {
         $token = bin2hex(random_bytes(16));
-        Service::get()->session->set('csrf', $token);
+        Container::get()->session->set('csrf', $token);
         return $token;
     }
 
     public function removeToken(): void
     {
-        Service::get()->session->delete('csrf');
+        Container::get()->session->delete('csrf');
     }
 
     public function getToken(): string
     {
-        return Service::get()->session->get('csrf');
+        return Container::get()->session->get('csrf');
     }
 
     public static function render(): string
     {
-        return sprintf('<input type="hidden" name="csrf" value="%s">', Service::get()->csrf->getToken());
+        return sprintf('<input type="hidden" name="csrf" value="%s">', Container::get()->csrf->getToken());
     }
 }

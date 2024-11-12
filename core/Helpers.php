@@ -1,20 +1,20 @@
 <?php
 
 use Core\Http\Security\Csrf;
-use Core\Http\Service\Service;
+use Core\Http\Service\Container;
 use Core\Http\User\LoggedUser;
 
 function loggedUser(): LoggedUser
 {
-    return Service::get()->loggedUser;
+    return Container::get()->loggedUser;
 }
 
 function flashRender(): void
 {
     if (isset($_SESSION['flash']))
     {
-        echo Service::get()->flash->render();
-        Service::get()->flash->clear(); 
+        echo Container::get()->flash->render();
+        Container::get()->flash->clear(); 
     }
 }
 

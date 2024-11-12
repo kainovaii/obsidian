@@ -5,7 +5,7 @@ namespace App\Domain\Role\Repository;
 use Illuminate\Database\Capsule\Manager;
 use Illuminate\Support\Collection;
 
-class PolicyRepository extends Manager
+class PolicyRepository extends RoleRepository
 {
     public function getAll(): Collection
     {

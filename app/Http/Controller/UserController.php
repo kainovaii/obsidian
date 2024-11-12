@@ -23,7 +23,7 @@ class UserController extends Controller
     #[Route('/users', 'GET', 'default')]
     public function all(Request $_request): View
     {
-        $query = $this->userRepository->getAll();
+        $query = $this->container->userRepository->getAll();
         return $this->view('user/all', 'main', [
             'users' => $query
         ]);
@@ -32,7 +32,7 @@ class UserController extends Controller
     #[Route('/users/{username}', 'GET', 'default')]
     public function show(Request $_request): View
     {
-        $query = $this->userRepository->getByUsername($_request->getParams('username'));
+        $query = $this->container->userRepository->getByUsername($_request->getParams('username'));
         return $this->view('user/show', 'main', [
             'user' => $query
         ]);

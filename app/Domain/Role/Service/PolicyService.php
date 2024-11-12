@@ -2,8 +2,7 @@
 
 namespace App\Domain\Role\Service;
 
-use Core\Http\Service\Service;
-use Core\ServiceInterface;
+use Core\Http\Service\Container;
 use Illuminate\Database\Capsule\Manager;
 
 class PolicyService extends Manager
@@ -24,7 +23,7 @@ class PolicyService extends Manager
 
     public function getPermission(string $policy, string $permission): bool
     {
-        $query = Service::get()->policyService
+        $query = Container::get()->policyService
             ->table('policies')
             ->where('name', $policy)
             ->first($permission);

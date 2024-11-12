@@ -2,9 +2,10 @@
 
 namespace App\Domain\Blog;
 
+use Core\Http\Service\Service;
 use Illuminate\Database\Capsule\Manager;
 
-class BlogService extends Manager
+class BlogService extends Service
 {
     private int $id;
     

@@ -2,9 +2,9 @@
 
 namespace App\Domain\Auth;
 
-use Illuminate\Database\Capsule\Manager;
+use Core\Http\Service\Service;
 
-class UserService extends Manager
+class UserService extends Service
 {
     private string $username;
     

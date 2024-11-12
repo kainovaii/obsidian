@@ -12,13 +12,13 @@ class BlogApiController extends Controller
     public function edit(Request $_request): void
     {
         $this->isGranted(BlogVoter::EDIT, $_request->getBody());
-        $this->blog->interact($_request->getBody()['id']);
-        $this->blog->update([
+        $this->container->blog->interact($_request->getBody()['id']);
+        $this->container->blog->update([
             'title' => $_request->getBody()['title'],
             'content' => $_request->getBody()['content']
         ]);
 
-        $this->flash->success("L'article a bien été modifié");
+        $this->container->flash->success("L'article a bien été modifié");
         $this->redirect('/blog/'.$_request->getBody()['id'].'/edit');
     }
 
@@ -27,23 +27,23 @@ class BlogApiController extends Controller
     {
         $this->isGranted(BlogVoter::DELETE, $_request->getBody());
 
-        $this->blog->interact((int) $_request->getBody()['id']);
-        $this->blog->delete();
+        $this->container->blog->interact((int) $_request->getBody()['id']);
+        $this->container->blog->delete();
 
-        $this->flash->success("L'article a bien été suprimé");
+        $this->container->flash->success("L'article a bien été suprimé");
         $this->redirect('/blog');
     }
 
     #[Route('/api/blog/create', 'POST', 'auth')]
     public function create(Request $_request): void
     {
-        $this->blog->create([
+        $this->container->blog->create([
             'title' => $_request->getBody()['title'],
             'content' => $_request->getBody()['content'],
-            'author' => $this->loggedUser->getUserIdentifier(),
+            'author' => $this->container->loggedUser->getUserIdentifier(),
         ]);
 
-        $this->flash->success("L'article a bien été crée");
+        $this->container->flash->success("L'article a bien été crée");
         $this->redirect('/blog');
     }
 }

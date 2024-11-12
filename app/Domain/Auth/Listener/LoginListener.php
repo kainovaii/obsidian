@@ -4,7 +4,7 @@ namespace App\Domain\Auth\Listener;
 
 use App\Domain\Auth\Event\LoginFailureEvent;
 use App\Domain\Auth\Event\LoginSuccessEvent;
-use Core\Http\Service\Service;
+use Core\Http\Service\Container;
 use Core\Http\User\UserInterface;
 
 class LoginListener
@@ -20,9 +20,9 @@ class LoginListener
         $user = $event->getUser();
         if ($user instanceof UserInterface)
         {
-            Service::get()->user->interate($user->getUserIdentifier());
-            Service::get()->user->update(['last_login' => new \DateTimeImmutable(), 'login_attempt' => 0]);
-            Service::get()->csrf->removeToken();
+            Container::get()->user->interate($user->getUserIdentifier());
+            Container::get()->user->update(['last_login' => new \DateTimeImmutable(), 'login_attempt' => 0]);
+            Container::get()->csrf->removeToken();
         }
     }
     
@@ -31,13 +31,13 @@ class LoginListener
         $user = $event->getUser();
         if ($user instanceof \stdClass)
         {
-            Service::get()->user->interate($user->username);
+            Container::get()->user->interate($user->username);
 
             if ($user->login_attempt >= 3)
             {
-                Service::get()->user->update(['status' => 0]);
+                Container::get()->user->update(['status' => 0]);
             } else {
-                Service::get()->user->update(['login_attempt' => $user->login_attempt+1]);
+                Container::get()->user->update(['login_attempt' => $user->login_attempt+1]);
             }
         }
     }

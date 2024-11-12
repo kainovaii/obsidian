@@ -3,8 +3,7 @@
 namespace App\Domain\Auth\Event;
 
 use Core\Http\Listener\Event;
-use Core\Http\Service\Service;
-use Core\Http\User\UserInterface;
+use Core\Http\Service\Container;
 
 class LoginFailureEvent extends Event
 {
@@ -24,7 +23,7 @@ class LoginFailureEvent extends Event
 
     public function getUser(): Object
     {
-        return Service::get()
+        return Container::get()
             ->userRepository
             ->getByEmail($this->object->email);
     }

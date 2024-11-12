@@ -3,7 +3,7 @@
 namespace App\Domain\Auth\Event;
 
 use Core\Http\Listener\Event;
-use Core\Http\Service\Service;
+use Core\Http\Service\Container;
 use Core\Http\User\UserInterface;
 
 class LoginSuccessEvent extends Event
@@ -24,6 +24,6 @@ class LoginSuccessEvent extends Event
 
     public function getUser(): UserInterface
     {
-        return Service::get()->loggedUser;
+        return Container::get()->loggedUser;
     }
 }

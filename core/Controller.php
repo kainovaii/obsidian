@@ -3,14 +3,21 @@
 namespace Core;
 
 use Core\Http\Security\Voter\Security;
-use Core\Http\Service\RegisterServiceContainer;
+use Core\Http\Service\Container;
 use Core\Http\User\LoggedUser;
 use Core\Http\User\UserInterface;
 use Core\View;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 
-abstract class Controller extends RegisterServiceContainer
+abstract class Controller
 {
+    protected Container $container;
+
+    public function __construct()
+    {
+        $this->container = new Container();
+    }
+
     public function getUserOrThrow(): UserInterface
     {
         $user = new LoggedUser();
