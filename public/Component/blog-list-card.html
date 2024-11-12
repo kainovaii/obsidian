@@ -1,14 +1,18 @@
-<div class="col-md-4">
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <p><strong x-text="item.title"></strong></p>
-            <p class="card-text" x-text="item.content"></p>
-            <div class="d-flex justify-content-between align-items-center">
-            <div x-data="{article_url: '/blog/' + item.id}" class="btn-group">
-                <a :href="article_url" class="btn btn-sm btn-outline-secondary">View</a>
-            </div>
-            <small x-text="item.author" class="text-body-secondary"></small>
+<div>
+    <template x-data="{articles: item}" x-for="article in articles">
+        <div class="col-md-12 mt-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <p><strong x-text="article.title"></strong></p>
+                    <p class="card-text" x-text="article.content"></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                    <div x-data="{article_url: '/blog/' + article.id}" class="btn-group">
+                        <a :href="article_url" class="btn btn-sm btn-outline-secondary">View</a>
+                    </div>
+                    <small x-text="article.author" class="text-body-secondary"></small>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </template>
 </div>

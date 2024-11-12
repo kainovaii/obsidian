@@ -1,5 +1,4 @@
 <?php
-
 namespace Core\Http\Service;
 
 use App\Domain\Auth\Event\LoginFailureEvent;
@@ -43,26 +42,37 @@ class RegisterServiceContainer {
     
     public function __construct()
     {
-        $this->registerService();
+        $container = new ServiceContainer();
+
+        $this->registerService($container);
+        $this->registerRepository($container);
+        $this->registerOther($container);
         $this->registerListener();
     }
 
-    public function registerService(): void
+    public function registerService(ServiceContainer $container): void
     {
-        $container = new ServiceContainer();
-        $this->userRepository = $container->get(UserRepository::class);
-        $this->userService = $container->get(AuthService::class);
+        $this->blog = $container->get(BlogService::class);
         $this->user = $container->get(UserService::class);
+        $this->userService = $container->get(AuthService::class);
+        $this->roleService = $container->get(RoleService::class);
+        $this->policyService = $container->get(PolicyService::class);
+    }
+
+    public function registerRepository(ServiceContainer $container): void
+    {
+        $this->userRepository = $container->get(UserRepository::class);
+        $this->blogRepository = $container->get(BlogRepository::class);
+        $this->roleRepository = $container->get(RoleRepository::class);
+        $this->policyRepository = $container->get(PolicyRepository::class);
+    }
+
+    public function registerOther(ServiceContainer $container)
+    {
         $this->session = $container->get(SessionManager::class);
         $this->flash = $container->get(Flash::class);
         $this->loggedUser = $container->get(LoggedUser::class);
-        $this->blogRepository = $container->get(BlogRepository::class);
-        $this->blog = $container->get(BlogService::class);
         $this->csrf = $container->get(Csrf::class);
-        $this->roleRepository = $container->get(RoleRepository::class);
-        $this->roleService = $container->get(RoleService::class);
-        $this->policyRepository = $container->get(PolicyRepository::class);
-        $this->policyService = $container->get(PolicyService::class);
     }
 
     public function registerListener(): void
@@ -78,12 +88,10 @@ class RegisterServiceContainer {
     public static function get(): mixed
     {
         $class = get_called_class();
-
         if(!isset(self::$_instance[$class]))
         {
             self::$_instance[$class] = new $class;
         }
-
         return self::$_instance[$class];
     }
 }
