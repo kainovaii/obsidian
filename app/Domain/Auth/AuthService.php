@@ -11,38 +11,39 @@ class AuthService extends UserRepository
 {
     public function authenticate(Request $_resquest): bool
     {
-        if ($_resquest->getBody()['csrf'] === Container::get()->csrf->getToken())
+        $email = (string) $_resquest->getBody()['email'];
+        $password = (string) $_resquest->getBody()['password'];
+        $user =  $this->getByEmail($email);
+
+        if (!$_resquest->getBody()['csrf'] === Container::get()->csrf->getToken())
         {
-            $email = (string) $_resquest->getBody()['email'];
-            $password = (string) $_resquest->getBody()['password'];
-            $user =  $this->getByEmail($email);
-            if ($user)
-            {
-                if ($user->status >= 1)
-                {
-                    if (password_verify($password, $user->password))
-                    {
-                        Container::get()->session->set('user', $user);
-                        Container::get()->dispatcher->dispatch(new LoginSuccessEvent($user));
-                        Container::get()->flash->success('Login successfull !');
-                        return true;
-                    } else {
-                        Container::get()->flash->error('Sorry incorect password !');
-                        Container::get()->dispatcher->dispatch(new LoginFailureEvent($user));
-                        return false;
-                    }
-                } else {
-                    Container::get()->flash->error('Oops! 😖 Ce compte a été bloqué');
-                    return false;
-                }
-            } else {
-                Container::get()->flash->error('Sorry this account does not exist');
-                return false;
-            }
-        } else {
-            Container::get()->flash->error('Csrf token invalid');
+            Container::get()->flash->error('Incorect csrf token !');
             return false;
         }
+
+        if (!$user)
+        {
+            Container::get()->flash->error('Sorry this account does not exist');
+            return false;
+        }
+
+        if (!$user->status >= 1)
+        {
+            Container::get()->flash->error('Oops! 😖 Ce compte a été bloqué');
+            return false;
+        }
+
+        if (!password_verify($password, $user->password))
+        {
+            Container::get()->flash->error('Sorry incorect password !');
+            Container::get()->dispatcher->dispatch(new LoginFailureEvent($user));
+            return false;
+        }
+
+        Container::get()->session->set('user', $user);
+        Container::get()->dispatcher->dispatch(new LoginSuccessEvent($user));
+        Container::get()->flash->success('Login successfull !');
+        return true;
     }
 
     public function signout(): bool

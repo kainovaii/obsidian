@@ -1,18 +1,20 @@
-<div>
-    <template x-data="{articles: item}" x-for="article in articles">
-        <div class="col-md-12 mt-3">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <p><strong x-text="article.title"></strong></p>
-                    <p class="card-text" x-text="article.content"></p>
-                    <div class="d-flex justify-content-between align-items-center">
-                    <div x-data="{article_url: '/blog/' + article.id}" class="btn-group">
-                        <a :href="article_url" class="btn btn-sm btn-outline-secondary">View</a>
-                    </div>
-                    <small x-text="article.author" class="text-body-secondary"></small>
-                    </div>
+<div class="section catalog">
+    <div class="catalog__center center">
+        <div class="catalog__group">
+            <template x-data="{articles: item}" x-for="article in articles">
+            <a class="card" :href="'/blog/'+article.id">
+                <div class="card__preview"><img :src="article.thumbnail" alt="Card preview">
                 </div>
-            </div>
+                <div class="card__body">
+                    <div class="card__avatar"></div>
+                    <div class="card__details">
+                        <div class="card__title" style="color: white;" x-text="article.title"></div>
+                        <div class="card__author" x-text="article.author"></div>
+                    </div>
+                    <div class="category-stroke-green card__status">Tag</div>
+                </div>
+            </a>
+            </template>
         </div>
-    </template>
+    </div>
 </div>

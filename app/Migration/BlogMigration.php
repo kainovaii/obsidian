@@ -21,6 +21,8 @@ class BlogMigration extends Migration implements MigrationInterface
             $table->string('title');
             $table->text('content');
             $table->string('author');
+            $table->string('thumbnail');
+            $table->dateTime('updated_at');
         });
     }
 

@@ -7,7 +7,6 @@ class Container extends RegisterServiceContainer
     public function __construct()
     {
         $container = new ServiceContainer();
-
         $this->registerService($container);
         $this->registerRepository($container);
         $this->registerOther($container);

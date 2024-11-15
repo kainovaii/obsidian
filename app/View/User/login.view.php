@@ -1,21 +1,33 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-5 pt-5">
-            <form action="/api/users/login" method="post">
-                <?= getCsrf() ?>
-                <div class="form-group">
-                    <label for="">Email</label>
-                    <input class="form-control" type="email" name="email">
+<div class="login__form">
+    <form action="/api/users/login" method="POST">
+        <?= getCsrf() ?>
+        <div class="entry__form">
+            <div class="field field_view">
+                <div class="field__label">email</div>
+                <div class="field__wrap">
+                    <input class="field__input" type="email" name="email" placeholder="Email" required="" />
                 </div>
-                <div class="form-group mt-2">
-                    <label for="">Password</label>
-                    <input class="form-control" type="password" name="password">
+            </div>
+            <br />
+            <div class="field field_view">
+                <div class="field__label">password</div>
+                <div class="field__wrap">
+                    <input class="field__input" type="password" name="password" placeholder="Password" required="" />
+                    <button class="field__view">
+                        <svg class="icon icon-eye">
+                            <use xlink:href="#icon-eye"></use>
+                        </svg>
+                    </button>
                 </div>
-                <div class="form-group mt-2">
-                    <input class="btn btn-primary" type="submit">
-                </div>
-            </form>
+            </div>
+            <button class="button entry__button">Login</>
         </div>
-    </div>
+    </form>
 </div>
-
+<style>
+.login__form {
+    margin: auto;
+    width: 20%;
+    padding: 10px;
+}
+</style>

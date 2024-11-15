@@ -1,3 +1,5 @@
-<center class="mt-5">
-    <h1>Hello world !</h1>
-</center>
+<div class="bidding js-bidding"> 
+    <div class="bidding__body">
+        <h1 class="text-center">Hello world</h1>
+    </div>
+</div>
