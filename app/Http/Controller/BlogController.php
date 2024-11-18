@@ -26,7 +26,8 @@ class BlogController extends Controller
 
         $this->isGranted(BlogVoter::READ);
         return $this->view('blog/show', 'main', [
-            'article' => $query
+            'article' => $query,
+            'content' => htmlspecialchars_decode($query->content)
         ]);
     }
 

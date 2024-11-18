@@ -19,7 +19,7 @@ class BlogApiController extends Controller
         ]);
 
         $this->container->flash->success("L'article a bien été modifié");
-        $this->redirect('/blog/'.$_request->getBody()['id'].'/edit');
+        $this->redirect('/settings/blog/'.$_request->getBody()['id']);
     }
 
     #[Route('/api/blog/delete', 'POST', 'auth')]
@@ -40,6 +40,7 @@ class BlogApiController extends Controller
         $this->container->blog->create([
             'title' => $_request->getBody()['title'],
             'content' => $_request->getBody()['content'],
+            'thumbnail' => 'https://placehold.co/600x400',
             'author' => $this->container->loggedUser->getUserIdentifier(),
         ]);
 

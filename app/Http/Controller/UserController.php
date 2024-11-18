@@ -17,7 +17,7 @@ class UserController extends Controller
     #[Route('/users/account', 'GET', 'auth')]
     public function account(Request $_request): View
     {
-        return $this->view('user/account', 'main');
+        return $this->view('user/account', 'account');
     }
 
     #[Route('/users', 'GET', 'default')]

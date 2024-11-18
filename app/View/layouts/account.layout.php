@@ -9,8 +9,8 @@
             <!-- container-->
             <div class="outer__inner">
                 {{flash_message}}
-                <center class="mt-5">
-                    <js-component name="global/title-banner" styles="default" x-data="{title: 'Settings', subtitle: 'Accès restreint'}" />
+                <center>
+                    <title-banner x-data="{title: 'Profil', subtitle: 'Accès restreint'}" />
                 </center>
                 <div class="bidding js-bidding"> 
                     <div class="bidding__body" style="padding: 0;">
@@ -19,23 +19,11 @@
                                 <div class="profile__sidebar">
                                     <div class="profile__dropdown">
                                         <div class="profile__menu">
-                                            <a class="profile__link" href="/settings">
+                                            <a class="profile__link" href="/users/account">
                                                 <div class="icon icon-user">
-                                                    <i style="font-size: 24px;" class="fa-regular fa-gauge"></i>
+                                                    <i style="font-size: 24px;" class="fa-regular fa-user"></i>
                                                 </div>
-                                                <span style="font-size: 16px;">Dashboard</span>
-                                            </a>
-                                            <a class="profile__link" href="/settings/blog">
-                                                <div class="icon icon-user">
-                                                    <i style="font-size: 24px;" class="fa-solid fa-newspaper"></i>
-                                                </div>
-                                                <span style="font-size: 16px;">Posts</span>
-                                            </a>
-                                            <a class="profile__link" href="/settings/role">
-                                                <div class="icon icon-user">
-                                                    <i style="font-size: 24px;" class="fa-solid fa-tower-control"></i>
-                                                </div>
-                                                <span style="font-size: 16px;">Roles</span>
+                                                <span style="font-size: 16px;">Profil</span>
                                             </a>
                                         </div>
                                     </div>
