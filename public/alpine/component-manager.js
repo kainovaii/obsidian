@@ -56,5 +56,5 @@
         }
         customElements.define(l, a);
     }
-    window.AlpineWebComponent = r;
+    window.WebComponent = r;
 })();
