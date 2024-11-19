@@ -2907,7 +2907,7 @@ body.dark .header__item_notifications .header__head:hover .icon {
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 15%;
 }
 .header__item_dropdown.active .header__head,
 .header__item_settings.active .header__head {
@@ -6872,7 +6872,7 @@ body.dark .card {
     flex-shrink: 0;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 15%;
     overflow: hidden;
     background: #e4d7cf;
 }

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    {{head}}
+    [[head]]
     <body x-data class="dark">
         <!-- outer-->
         <div class="outer">
             <!-- header-->
-            {{header}}
+            [[header]]
             <!-- container-->
             <div class="outer__inner">
-                {{flash_message}}
-                {{content}}
+                [[flash_message]]
+                [[content]]
             </div>
             <!-- footer-->
             <footer class="footer">
@@ -20,6 +20,6 @@
                 </div>
             </footer>
         </div>
-        {{foot}}
+        [[foot]]
     </body>
 </html>

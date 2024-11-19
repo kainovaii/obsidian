@@ -63,14 +63,14 @@ final class View
     {
         foreach ($this->params as $key => $value) $$key = $value;
 
-        $partial = trim($placeholder, "{{}}");
+        $partial = trim($placeholder, "[[]]");
 
         ob_start();
 
         require_once Application::$ROOT_DIR .
-            DIRECTORY_SEPARATOR . 'App/View' .
-            DIRECTORY_SEPARATOR . 'partials' .
-            DIRECTORY_SEPARATOR . $partial . self::PARTIAL_EXTENS;
+        DIRECTORY_SEPARATOR . 'App/View' .
+        DIRECTORY_SEPARATOR . 'partials' .
+        DIRECTORY_SEPARATOR . $partial . self::PARTIAL_EXTENS;
 
         return ob_get_clean();
     }
@@ -91,13 +91,13 @@ final class View
      */
     private function render_content(): string
     {
-        return str_replace('{{content}}', $this->view_content(), $this->layout_content());
+        return str_replace('[[content]]', $this->view_content(), $this->layout_content());
     }
 
     private function render(string $content): string
     {
-        $start = strpos($content, '{{');
-        $end = strpos($content, '}}');
+        $start = strpos($content, '[[');
+        $end = strpos($content, ']]');
 
         return ($start && $end) ?
             $this->render($this->render_partial($content, $start, $end)) : $content;

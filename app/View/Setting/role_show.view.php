@@ -4,13 +4,13 @@
             <span>Edit: <?= $role->name ?></span>
             <div class="row mt-3">
                 <div class="col-md-6">
-                    <js-component name="global/form-input" styles="default" x-data="{type: 'text', name: 'name', value: '<?= $role->name ?>'}" />
+                    <form-input x-data="{type: 'text', name: 'name', value: '<?= $role->name ?>'}" />
                 </div>
                 <div class="col-md-6">
-                    <js-component name="global/form-input" styles="default" x-data="{type: 'text', name: 'prefix', value: '<?= $role->prefix ?>'}" />
+                    <form-input x-data="{type: 'text', name: 'prefix', value: '<?= $role->prefix ?>'}" />
                 </div>
                 <div class="col-md-6 mt-3">
-                    <js-component name="global/form-select" styles="default" x-data="{c1:{name: 'test', value: 'test'}, c2:{name: 'test', value: 'test'}, name: 'Policy'}" />
+                    <form-select x-data="{name: 'Policy', choices: [{name: 'test1', value: 'test1'}, {name: 'test2', value: 'test2'}]}" />
                 </div>
             </div>
         </div>

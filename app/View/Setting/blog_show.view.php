@@ -1,6 +1,9 @@
 <div class="bidding__item">
     <div class="crypto">
-        <div class="crypto__title">Edit post: <?= $article->title ?></div>
+        <div class="crypto__title">
+            <span>Edit post: <?= $article->title ?></span>
+        </div>
+        
         <div x-data="{content: '<?= $article->content ?>'}" >
             <alpine-editor x-model="content">
                 <div data-type="menu" class="editor_header">
@@ -32,7 +35,15 @@
                     <input type="hidden" name="title" value="<?= $article->title ?>">
                     <input type="hidden" name="id" value="<?= $article->id ?>">
                     <input type="hidden" name="content" :value="content">
-                    <button style="margin-top: 10px; float: right; border-radius: 5px;" class="button-stroke button-small header__button" type="submit">Submit</button>
+                    
+                    <div class="mt-2">
+                        <button style="float: right; border-radius: 5px;" class="button-stroke button-small header__button" type="submit">Submit</button>
+                        <form action="/api/blog/delete" method="POST">
+                            <input type="hidden" name="id" value="<?= $article->id ?>">
+                            <input type="hidden" name="author" value="<?= $article->author ?>">
+                            <button style="border-radius: 5px; float: right; margin-right: 5px;" class="button-stroke button-small header__button" type="submit">Delete</button>
+                        </form>
+                    </div>
                 </form>
             </alpine-editor>
         </div>

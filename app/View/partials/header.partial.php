@@ -68,7 +68,7 @@
                 </label>
                 -->
                 <div class="header__item header__item_user js-header-item">
-                    <button class="header__head js-header-head"><img src="/assets/img/content/avatar-user.jpg" alt="Avatar" /></button>
+                    <button class="header__head js-header-head"><user-avatar /></button>
                     <div class="header__body js-header-body">
                         <a class="header__el" href="/users/account">
                             <div class="header__icon">

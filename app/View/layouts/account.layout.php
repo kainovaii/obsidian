@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-    {{head}}
+    [[head]]
     <body class="dark">
         <!-- outer-->
         <div class="outer">
             <!-- header-->
-            {{header}}
+            [[header]]
             <!-- container-->
             <div class="outer__inner">
-                {{flash_message}}
+                [[flash_message]]
                 <center>
                     <title-banner x-data="{title: 'Profil', subtitle: 'Accès restreint'}" />
                 </center>
@@ -29,7 +29,7 @@
                                     </div>
                                 </div>
                                 <div class="profile__wrapper">
-                                {{content}}
+                                [[content]]
                                 </div>
                             </div>
                         </div>
@@ -46,6 +46,6 @@
                 </div>
             </footer>
         </div>
-        {{foot}}
+        [[foot]]
     </body>
 </html>

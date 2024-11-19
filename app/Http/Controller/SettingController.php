@@ -46,18 +46,40 @@ class SettingController extends Controller
     #[Route('/settings/role', 'GET', 'auth')]
     public function role_home(Request $_request): View
     {
+        $this->isGranted(AdminVoter::class);
         return $this->view('setting/role_home', 'setting', [
             'roles' => $this->container->roleRepository->getAll()
         ]);
     }
 
     #[Route('/settings/role/{name}', 'GET', 'auth')]
-    public function show(Request $_request): View
+    public function role_show(Request $_request): View
     {
         $query = $this->container->roleRepository->getSingle($_request->getParams('name'));
 
         $this->isGranted(AdminVoter::class);
         return $this->view('/setting/role_show', 'setting', [
+            'role' => $query
+        ]);
+    }
+
+    #[Route('/settings/policy', 'GET', 'auth')]
+    public function policy_home(Request $_request): View
+    {
+        //dump($this->container->policyRepository->getAll());
+        $this->isGranted(AdminVoter::class);
+        return $this->view('setting/policy_home', 'setting', [
+            'policies' => $this->container->policyRepository->getAll()
+        ]);
+    }
+
+    #[Route('/settings/policy/{name}', 'GET', 'auth')]
+    public function policy_show(Request $_request): View
+    {
+        $query = $this->container->policyRepository->getSingle($_request->getParams('name'));
+
+        $this->isGranted(AdminVoter::class);
+        return $this->view('/setting/policy_show', 'setting', [
             'role' => $query
         ]);
     }

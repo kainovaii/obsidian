@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    {{head}}
+    [[head]]
     <body class="dark">
         <!-- outer-->
         <div class="outer">
             <!-- header-->
-            {{header}}
+            [[header]]
             <!-- container-->
             <div class="outer__inner">
-                {{flash_message}}
-                <center class="mt-5">
-                    <js-component name="global/title-banner" styles="default" x-data="{title: 'Settings', subtitle: 'Accès restreint'}" />
+                [[flash_message]]
+                <center>
+                    <title-banner x-data="{title: 'Settings', subtitle: 'Accès restreint'}" />
                 </center>
                 <div class="bidding js-bidding"> 
                     <div class="bidding__body" style="padding: 0;">
@@ -37,11 +37,17 @@
                                                 </div>
                                                 <span style="font-size: 16px;">Roles</span>
                                             </a>
+                                            <a class="profile__link" href="/settings/policy">
+                                                <div class="icon icon-user">
+                                                    <i style="font-size: 24px;" class="fa-solid fa-shield"></i>
+                                                </div>
+                                                <span style="font-size: 16px;">Policy</span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="profile__wrapper">
-                                {{content}}
+                                [[content]]
                                 </div>
                             </div>
                         </div>
@@ -58,6 +64,6 @@
                 </div>
             </footer>
         </div>
-        {{foot}}
+        [[foot]]
     </body>
 </html>

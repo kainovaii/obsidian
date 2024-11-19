@@ -3,3 +3,8 @@ AlpineWebComponent('blog-list-card', '/component/blog-list-card.html');
 AlpineWebComponent('title-banner', '/component/global/title-banner.html');
 AlpineWebComponent('blog-list-table', '/component/setting/blog-list-table.html');
 AlpineWebComponent('role-list-table', '/component/setting/role-list-table.html');
+AlpineWebComponent('policy-list-table', '/component/setting/policy-list-table.html');
+AlpineWebComponent('text-editor', '/component/text-editor.html');
+AlpineWebComponent('user-avatar', '/component/avatar.html');
+AlpineWebComponent('form-input', '/component/global/form-input.html');
+AlpineWebComponent('form-select', '/component/global/form-select.html');
