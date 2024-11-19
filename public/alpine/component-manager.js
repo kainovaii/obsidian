@@ -1,13 +1,14 @@
 (() => {
-    function r(l, c) {
-        class h extends HTMLElement {
-            constructor(n, i, a) {
+    function r(l, h) {
+        class a extends HTMLElement {
+            constructor(c, n, i) {
                 super();
                 this.getAttribute("shadow") !== null ? (this.attachShadow({ mode: "open" }), (this.shadow = !0), (this.root = this.shadowRoot)) : ((this.shadow = !1), (this.root = this)),
                     (this.alpineJS = window.Alpine ? window.Alpine : !1);
             }
             disconnectedCallback() {}
             connectedCallback() {
+                let c = "/component/" + h + ".html";
                 fetch(c)
                     .then((n) => n.text())
                     .then((n) => {
@@ -53,7 +54,7 @@
                     });
             }
         }
-        customElements.define(l, h);
+        customElements.define(l, a);
     }
     window.AlpineWebComponent = r;
 })();
