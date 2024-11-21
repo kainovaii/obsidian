@@ -80,7 +80,8 @@ class SettingController extends Controller
 
         $this->isGranted(AdminVoter::class);
         return $this->view('/setting/policy_show', 'setting', [
-            'role' => $query
+            'policy' => $query,
+            'permissions' => $query->permissions
         ]);
     }
 }

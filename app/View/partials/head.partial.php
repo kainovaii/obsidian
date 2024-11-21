@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="/assets/css/fontawesome-icons.css"> 
   <link rel="stylesheet" type="text/css" href="/assets/css/grid.css"> 
   <script src="/alpine/component-manager.js"></script>
-  <script defer src="/alpine/alpine.min.js"></script>
+  <script defer src="/alpine/alpine.js"></script>
   <script defer src="/alpine/alpine-editor.js"></script>
   <script defer src="/alpine/register-component.js"></script>
 </head>

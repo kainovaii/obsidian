@@ -1,0 +1,41 @@
+<div class="crypto__table">
+    <style>
+    .crypto__col {
+        color: #ffff !important;
+        border-top: 1px solid  #23262F !important;
+        text-align: left !important;
+    }
+    .crypto__col_link {
+        color: #ffff !important;
+        cursor: pointer;
+    }
+    </style>
+    <div class="crypto__row">
+        <div class="crypto__col">
+            <div class="">Edit</div>
+        </div>
+        <div class="crypto__col">
+            <div class="">Read</div>
+        </div>
+        <div class="crypto__col">
+            <div class="">Create</div>
+        </div>
+        <div class="crypto__col">
+            <div class="">Delete</div>
+        </div>
+    </div>
+    <template x-data="{permissions: item, test: 12}" x-for="(permission, index) in permissions">
+        <div class="crypto__row" style="border: none;">
+            <template x-for="(perm, key) in permission">  
+                <div class="crypto__col" style="text-align: center;">
+                    <template x-if="perm==true">
+                        <span>✅</span>
+                    </template>
+                    <template x-if="perm==false">
+                        <span>❌</span>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </template>
+</div>
