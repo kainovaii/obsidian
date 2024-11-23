@@ -13,7 +13,7 @@ class Flash extends SessionManager
 
     public function error(string $message): Flash
     {
-        $this->flash('danger', $message);
+        $this->flash('error', $message);
 
         return $this;
     }

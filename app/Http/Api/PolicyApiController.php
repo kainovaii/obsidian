@@ -27,7 +27,7 @@ class PolicyApiController extends Controller
         $this->container->policyService->update($data);
 
         $this->container->flash->success("La policy a bien été modifié");
-        $this->redirect('/settings/policy/'.$formData['policy_name']);
+        $this->redirect('/settings/policies/'.$formData['policy_name']);
 
     }
 }

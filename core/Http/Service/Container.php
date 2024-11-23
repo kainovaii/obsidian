@@ -13,7 +13,7 @@ class Container extends RegisterServiceContainer
         $this->registerListener();
     }
 
-    public static function get(): mixed
+    public static function get(): RegisterServiceContainer
     {
         $class = get_called_class();
         if(!isset(self::$_instance[$class]))

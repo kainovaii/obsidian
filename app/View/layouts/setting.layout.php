@@ -1,68 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" data-theme="night">
     [[head]]
-    <body class="dark">
-        <!-- outer-->
-        <div class="outer">
-            <!-- header-->
-            [[header]]
-            <!-- container-->
-            <div class="outer__inner">
-                [[flash_message]]
-                <center>
-                    <title-banner x-data="{title: 'Settings', subtitle: 'Accès restreint'}" />
-                </center>
-                <div class="bidding js-bidding"> 
-                    <div class="bidding__body" style="padding: 0;">
-                        <div class="profile__body">
-                            <div class="profile__center center">
-                                <div class="profile__sidebar">
-                                    <div class="profile__dropdown">
-                                        <div class="profile__menu">
-                                            <a class="profile__link" href="/settings">
-                                                <div class="icon icon-user">
-                                                    <i style="font-size: 24px;" class="fa-regular fa-gauge"></i>
-                                                </div>
-                                                <span style="font-size: 16px;">Dashboard</span>
-                                            </a>
-                                            <a class="profile__link" href="/settings/blog">
-                                                <div class="icon icon-user">
-                                                    <i style="font-size: 24px;" class="fa-solid fa-newspaper"></i>
-                                                </div>
-                                                <span style="font-size: 16px;">Posts</span>
-                                            </a>
-                                            <a class="profile__link" href="/settings/role">
-                                                <div class="icon icon-user">
-                                                    <i style="font-size: 24px;" class="fa-solid fa-tower-control"></i>
-                                                </div>
-                                                <span style="font-size: 16px;">Roles</span>
-                                            </a>
-                                            <a class="profile__link" href="/settings/policy">
-                                                <div class="icon icon-user">
-                                                    <i style="font-size: 24px;" class="fa-solid fa-shield"></i>
-                                                </div>
-                                                <span style="font-size: 16px;">Policy</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="profile__wrapper">
-                                [[content]]
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <body>
+        [[header]]
+        <title-banner x-data="{title: 'Settings', subtitle: 'Accès restreint'}"></title-banner>
+        [[flash_message]]
+        <div class="container mx-auto px-[200px] pt-5">
+            <div class="grid grid-cols-3 gap-4">
+                <div>
+                    <ul class="menu bg-base-200 rounded-box w-100">
+                        <li>
+                            <a href="/settings">
+                                <i style="font-size: 24px;" class="fa-regular fa-gauge"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/settings/blog">
+                                <i style="font-size: 24px;" class="fa-solid fa-newspaper"></i>
+                                Posts
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/settings/roles">
+                                <i style="font-size: 24px;" class="fa-solid fa-tower-control"></i>
+                                Roles
+                            </a>
+                        </li>
 
-            </div>
-            <!-- footer-->
-            <footer class="footer">
-                <div class="footer__foot">
-                    <div class="footer__center center">
-                        <div class="footer__copyright">Copyright © 2021 UI8 LLC. All rights reserved</div>
-                    </div>
+                        <li>
+                            <a href="/settings/policies">
+                                <i style="font-size: 24px;" class="fa-solid fa-shield"></i>
+                                Policies
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </footer>
+                <div class="col-span-2 bg-base-200 rounded-box p-5">[[content]]</div>
+            </div>
         </div>
         [[foot]]
     </body>

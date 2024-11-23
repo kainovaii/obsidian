@@ -5,7 +5,7 @@
 <style>
 #flash-alert {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   right: 10px;
   max-width: 350px;
 }

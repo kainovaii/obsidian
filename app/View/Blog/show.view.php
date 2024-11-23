@@ -1,37 +1,20 @@
-<div class="section article">
-    <div class="section article__body">
-        <div class="article__center center">
-            <div class="article__head">
-                <h1 class="article__title h1"><?= $article->title ?></h1>
-                <div class="breadcrumbs">
-                    <div class="breadcrumbs__item"><a class="breadcrumbs__link" href="/">Home</a></div>
-                    <div class="breadcrumbs__item"><a class="breadcrumbs__link" href="/blog">Blog</a></div>
-                    <div class="breadcrumbs__item"><?= $article->title ?></div>
-                </div>
+<div class="container mx-auto px-[200px] pt-20">
+    <div class="article__wrap">
+        <div class="article__title grid grid-cols-1 gap-4 justify-items-center">
+            <h1 class="text-center text-5xl mx-auto px-[300px]"><?= $article->title ?></h1>
+            <div class="breadcrumbs text-sm">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><?= $article->title ?></li>
+                </ul>
             </div>
         </div>
-    </div>
-    <div class="article__wrap">
-        <div class="article__center center">
-            <div class="content">
-               <figure><img src="<?= $article->thumbnail ?>" alt="Content"></figure>
-               <br>
-               <div x-data="{content: '<?= $content ?>'}" x-html="content"></div>
-            </div>
-            <div class="actions js-actions">
-                <div class="actions__list">
-                    <div class="actions__item">
-                        <button class="button-circle-stroke button-small actions__favorite js-actions-favorite">
-                      <svg class="icon icon-heart">
-                        <use xlink:href="#icon-heart"></use>
-                      </svg>
-                      <svg class="icon icon-heart-fill">
-                        <use xlink:href="#icon-heart-fill"></use>
-                      </svg>
-                    </button>
-                    </div>
-                </div>
-            </div>
+        <div class="article__thumbnail grid grid-cols-1 justify-items-center mt-10">
+            <img src="<?= $article->thumbnail ?>" class="rounded-lg shadow-2xl" />
+        </div>
+        <div class="article__content">
+            <div x-data="{content: '<?= $content ?>'}" x-html="content"></div>
         </div>
     </div>
 </div>

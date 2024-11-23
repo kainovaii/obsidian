@@ -1,20 +1,19 @@
-<div class="section catalog">
-    <div class="catalog__center center">
-        <div class="catalog__group">
-            <template x-data="{articles: item}" x-for="article in articles">
-            <a class="card" :href="'/blog/'+article.id">
-                <div class="card__preview"><img :src="article.thumbnail" alt="Card preview">
+<div class="container mx-auto px-[200px] pt-5">
+    <div class="grid grid-cols-3 gap-4 justify-items-center">
+        <template x-data="{articles: item}" x-for="article in articles">
+        <a  :href="'/blog/'+article.id" class="card bg-base-200 w-[351px] shadow-xl">
+            <figure>
+                <img :src="article.thumbnail" alt="Placeholder" />
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title" x-text="article.title"></h2>
+                <p x-text="article.author"></p>
+                <div class="card-actions justify-end">
+                    <div class="badge badge-outline">Tag</div>
+                    <div class="badge badge-outline">Tag</div>
                 </div>
-                <div class="card__body">
-                    <div class="card__avatar"><user-avatar /></div>
-                    <div class="card__details">
-                        <div class="card__title" style="color: white;" x-text="article.title"></div>
-                        <div class="card__author" x-text="article.author"></div>
-                    </div>
-                    <div class="category-stroke-green card__status">Tag</div>
-                </div>
-            </a>
-            </template>
-        </div>
+            </div>
+        </a>
+        </template>
     </div>
 </div>

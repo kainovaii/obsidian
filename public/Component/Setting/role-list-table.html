@@ -1,39 +1,22 @@
-<div class="crypto__table">
-    <style>
-    .crypto__col {
-        color: #ffff !important;
-        border-top: 1px solid  #23262F !important;
-        text-align: left !important;
-    }
-    .crypto__col_link {
-        color: #ffff !important;
-        cursor: pointer;
-    }
-    </style>
-    <div class="crypto__row">
-        <div class="crypto__col">
-            <div class="sorting">#</div>
-        </div>
-        <div class="crypto__col">
-            <div class="sorting">Name</div>
-        </div>
-        <div class="crypto__col">
-            <div class="sorting">Prefix</div>
-        </div>
-        <div class="crypto__col">
-            <div class="sorting">Action</div>
-        </div>
-    </div>
-    <template x-data="{roles: item}" x-for="role in roles">
-    <div class="crypto__row" style="border: none;">
-        <div class="crypto__col">
-            <div class="crypto__line">
-                <span>1</span>
-            </div>
-        </div>
-        <div class="crypto__col" x-text="role.name"></div>
-        <div class="crypto__col" x-text="role.prefix"></div>
-        <div class="crypto__col"><a class="crypto__col_link" :href="'/settings/role/'+role.name">View</a></div>
-    </div>
-    </template>
+<div class="overflow-x-auto">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Prefix</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template x-data="{roles: item}" x-for="role in roles">
+            <tr>
+                <th x-text="role.id"></th>
+                <td x-text="role.name"></td>
+                <td x-text="role.prefix"></td>
+                <td><a :href="'/settings/roles/'+role.name">View</a></td>
+            </tr>
+            </template>
+        </tbody>
+    </table>
 </div>

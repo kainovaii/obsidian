@@ -43,7 +43,7 @@ class SettingController extends Controller
         return $this->view('setting/blog_new', 'setting');
     }
 
-    #[Route('/settings/role', 'GET', 'auth')]
+    #[Route('/settings/roles', 'GET', 'auth')]
     public function role_home(Request $_request): View
     {
         $this->isGranted(AdminVoter::class);
@@ -52,7 +52,7 @@ class SettingController extends Controller
         ]);
     }
 
-    #[Route('/settings/role/{name}', 'GET', 'auth')]
+    #[Route('/settings/roles/{name}', 'GET', 'auth')]
     public function role_show(Request $_request): View
     {
         $query = $this->container->roleRepository->getSingle($_request->getParams('name'));
@@ -63,7 +63,7 @@ class SettingController extends Controller
         ]);
     }
 
-    #[Route('/settings/policy', 'GET', 'auth')]
+    #[Route('/settings/policies', 'GET', 'auth')]
     public function policy_home(Request $_request): View
     {
         //dump($this->container->policyRepository->getAll());
@@ -73,7 +73,7 @@ class SettingController extends Controller
         ]);
     }
 
-    #[Route('/settings/policy/{name}', 'GET', 'auth')]
+    #[Route('/settings/policies/{name}', 'GET', 'auth')]
     public function policy_show(Request $_request): View
     {
         $query = $this->container->policyRepository->getSingle($_request->getParams('name'));

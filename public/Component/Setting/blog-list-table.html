@@ -1,39 +1,24 @@
-<div class="crypto__table">
-    <style>
-    .crypto__col {
-        color: #ffff !important;
-        border-top: 1px solid  #23262F !important;
-        text-align: left !important;
-    }
-    .crypto__col_link {
-        color: #ffff !important;
-        cursor: pointer;
-    }
-    </style>
-    <div class="crypto__row">
-        <div class="crypto__col">
-            <div class="sorting">#</div>
-        </div>
-        <div class="crypto__col">
-            <div class="sorting">Title</div>
-        </div>
-        <div class="crypto__col">
-            <div class="sorting">Author</div>
-        </div>
-        <div class="crypto__col">Created</div>
-        <div class="crypto__col">Action</div>
-    </div>
-    <template x-data="{articles: item}" x-for="article in articles">
-    <div class="crypto__row" style="border: none;">
-        <div class="crypto__col">
-            <div class="crypto__line">
-                <span>1</span>
-            </div>
-        </div>
-        <div class="crypto__col" x-text="article.title"></div>
-        <div class="crypto__col" x-text="article.author"></div>
-        <div class="crypto__col" x-text="article.updated_at"></div>
-        <div class="crypto__col"><a class="crypto__col_link" :href="'/settings/blog/'+article.id">View</a></div>
-    </div>
-    </template>
+<div class="overflow-x-auto">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template x-data="{articles: item}" x-for="article in articles">
+            <tr>
+                <th x-text="article.id"></th>
+                <td x-text="article.title"></td>
+                <td x-text="article.author"></td>
+                <td x-text="article.updated_at"></td>
+                <td><a :href="'/settings/blog/'+article.id">View</a></td>
+            </tr>
+            </template>
+        </tbody>
+    </table>
 </div>
