@@ -2,6 +2,8 @@
 
 namespace Core\Http\Service;
 
+use App\Registry\RegisterServiceContainer;
+
 class Container extends RegisterServiceContainer
 {
     public function __construct()

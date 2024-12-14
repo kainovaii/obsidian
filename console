@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
-use Core\Command;
+use App\Registry\RegisterCommand;
 
 require __DIR__.'/vendor/autoload.php';
 
-$command = new Command();
+$command = new RegisterCommand();
 $command->run();
