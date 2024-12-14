@@ -38,6 +38,14 @@ if [ $TYPE ]; then
         git push -u origin master
         echo "⚡️ Task complete"
     fi
+        if [ $TYPE == 'DEV' ]; then
+        read -p "⚡️ Enter text: " TEXT
+        git add --all
+        git commit -m "👨‍💻 Dev ($TEXT)"
+        git push -u origin 1.0
+        echo "⚡️ Task complete"
+    fi
+
 else
     echo "⚡️ Please enter deploy type"
     ./deploy.sh
