@@ -1,5 +1,5 @@
 <?php
-namespace Core\Http\Service;
+namespace App\Registry;
 
 use App\Domain\Auth\Event\LoginFailureEvent;
 use App\Domain\Auth\Event\LoginSuccessEvent;
@@ -24,6 +24,7 @@ use App\Domain\Role\Repository\PolicyRepository;
 use App\Domain\Role\Service\PolicyService;
 
 class RegisterServiceContainer {
+    public static array $_instance = [];
     public UserRepository $userRepository;
     public AuthService $userService;
     public SessionManager $session;
@@ -38,7 +39,6 @@ class RegisterServiceContainer {
     public RoleService $roleService;
     public PolicyRepository $policyRepository;
     public PolicyService $policyService;
-    public static array $_instance = [];
     
     public function registerService(ServiceContainer $container): void
     {
