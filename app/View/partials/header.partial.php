@@ -1,4 +1,4 @@
-<div class="navbar bg-[#1E293B] border-b-[2px] border-[#475569] px-[400px]">
+<div class="navbar bg-[#1E293B] border border-[#2A2E5E] px-[400px]">
     <div class="navbar-start">
         <div class="flex-1">
             <a href="/">
@@ -8,8 +8,8 @@
     </div>
     <div class="navbar-center">   
         <ul class="menu menu-horizontal">
-            <a href="/"><li><button>Home</button></li></a>
-            <a href="/blog"><li><button>Blog</button></li></a>
+            <a href="/"><li><button class="font-medium"><i class="fa-solid fa-house text-[12px]"></i>Home</button></li></a>
+            <a href="/blog"><li><button class="font-medium"><i class="fa-solid fa-newspaper text-[12px]"></i>Blog</button></li></a>
         </ul>
     </div>
     <div class="navbar-end">
@@ -18,7 +18,7 @@
             <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <img src="http://localhost:8080/assets/img/content/avatar-user.jpg" />
+                        <img src="/assets/img/avatar.png" />
                     </div>
                 </div>
                 <ul tabindex="0" class="menu menu-sm dropdown-content bg-[#1E293B] rounded-box z-[1] mt-3 w-52 p-2 shadow">

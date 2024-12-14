@@ -8,3 +8,4 @@ WebComponent('user-avatar', 'avatar');
 WebComponent('form-input', 'global/form-input');
 WebComponent('form-select', 'global/form-select');
 WebComponent('policy-perm-table', 'setting/policy-perm-table');
+WebComponent('test-search', 'test-search');

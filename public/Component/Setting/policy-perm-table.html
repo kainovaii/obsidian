@@ -17,13 +17,13 @@
                     <td>
                         <template x-if="perm==true">
                             <div>
-                                <span @click="perm=false">✅</span>
+                                <span class="cursor-pointer text-green-600" @click="perm=false"><i class="fa-solid fa-check"></i></span>
                                 <input type="hidden" :name="'permissions' + '->' +index + '->' + key" value="true">
                             </div>
                         </template>
                         <template x-if="perm==false">
                             <div>
-                                <span @click="perm=true">❌</span>
+                                <span class="cursor-pointer text-red-600" @click="perm=true"><i class="fa-solid fa-xmark"></i></span>
                                 <input type="hidden" :name="'permissions' + '->' +index + '->' + key" value="false">
                             </div>
                         </template>

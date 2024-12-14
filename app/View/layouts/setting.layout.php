@@ -12,26 +12,26 @@
                         <li>
                             <a href="/settings">
                                 <i style="font-size: 24px;" class="fa-regular fa-gauge"></i>
-                                Dashboard
+                                <span class="font-medium">Dashboard</span>
                             </a>
                         </li>
                         <li>
                             <a href="/settings/blog">
                                 <i style="font-size: 24px;" class="fa-solid fa-newspaper"></i>
-                                Posts
+                                <span class="font-medium">Posts</span>
                             </a>
                         </li>
                         <li>
                             <a href="/settings/roles">
                                 <i style="font-size: 24px;" class="fa-solid fa-tower-control"></i>
-                                Roles
+                                <span class="font-medium">Roles</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="/settings/policies">
                                 <i style="font-size: 24px;" class="fa-solid fa-shield"></i>
-                                Policies
+                                <span class="font-medium">Policies</span>
                             </a>
                         </li>
                     </ul>
