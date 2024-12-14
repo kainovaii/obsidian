@@ -71,7 +71,6 @@ class RegisterServiceContainer {
             ->addListener(LoginSuccessEvent::class, new LoginListener())
             ->addListener(LoginFailureEvent::class, new LoginListener())
             ->addListener(UserBannedEvent::class, new LoginListener());
-
         $this->dispatcher = new EventDispatcher($listenerProvider);
     }
 }

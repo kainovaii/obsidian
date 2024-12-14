@@ -42,10 +42,9 @@ if [ $TYPE ]; then
         read -p "⚡️ Enter text: " TEXT
         git add -u
         git commit -m "👨‍💻 Dev ($TEXT)"
-        git push -u origin dev
+        git push -u origin master
         echo "⚡️ Task complete"
     fi
-
 else
     echo "⚡️ Please enter deploy type"
     ./deploy.sh

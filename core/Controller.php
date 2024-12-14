@@ -2,6 +2,7 @@
 
 namespace Core;
 
+use App\Registry\RegisterVoter;
 use Core\Http\Security\Voter\Security;
 use Core\Http\Service\Container;
 use Core\Http\User\LoggedUser;
@@ -41,7 +42,7 @@ abstract class Controller
     }
 
     public static function isGranted(mixed $attribute, mixed $subject = null) {
-        $security = new Security();
+        $security = new RegisterVoter();
         if (!$security->authorizationChecker($attribute, $subject)) trigger_error('Access error'); 
     }
 
