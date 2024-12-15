@@ -11,6 +11,7 @@ use App\Domain\Auth\UserService;
 use Core\Http\Listener\EventDispatcher;
 use Core\Http\Listener\ListenerProvider;
 use Core\Http\Security\Csrf;
+use Core\Http\Test;
 use Core\Http\User\LoggedUser;
 use Core\Http\User\UserInterface;
 use App\Domain\Auth\UserRepository;

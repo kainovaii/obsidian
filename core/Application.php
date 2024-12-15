@@ -48,7 +48,7 @@ final class Application
         echo $this->router->resolve();
     }
 
-    function registerController($app, $controller)
+    function registerRoute($app, $controller)
     {
         $class = new \ReflectionClass($controller);
     
@@ -70,6 +70,40 @@ final class Application
                     $app->router->post($instace->getRoute(), [$controller, $mehtod->getName()]);
                 }
             }
+        }
+    }
+
+    public function registerController($app): void
+    {
+        $folderPath = dirname(__DIR__, 1) . '/app/Http/Controller'; // Spécifiez le chemin de votre dossier
+
+        try {
+            $classes = getClassesWithNamespacesRecursively($folderPath);
+            foreach ($classes as $class)
+            {
+                $test = new $class();
+                $this->registerRoute($app, $test);
+            }
+            
+        } catch (\Exception $e) {
+            echo 'Erreur : ' . $e->getMessage();
+        }
+    }
+
+    public function registerControllerApi($app): void
+    {
+        $folderPath = dirname(__DIR__, 1) . '/app/Http/Api'; // Spécifiez le chemin de votre dossier
+
+        try {
+            $classes = getClassesWithNamespacesRecursively($folderPath);
+            foreach ($classes as $class)
+            {
+                $test = new $class();
+                $this->registerRoute($app, $test);
+            }
+            
+        } catch (\Exception $e) {
+            echo 'Erreur : ' . $e->getMessage();
         }
     }
 }

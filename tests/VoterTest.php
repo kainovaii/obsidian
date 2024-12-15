@@ -1,7 +1,7 @@
 <?php
 namespace tests;
 
-use Core\Http\Security\Permission;
+use Core\Http\Security\Voter\Permission;
 use PHPUnit\Framework\TestCase;
 use tests\helpers\AuthorVoter;
 use tests\helpers\TestPost;

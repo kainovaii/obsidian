@@ -3,8 +3,9 @@
 namespace App\Domain\Blog;
 
 use Core\Http\Service\Service;
-use Illuminate\Database\Capsule\Manager;
+use Core\Http\Test;
 
+#[Test('testRepo', BlogService::class)]
 class BlogService extends Service
 {
     private int $id;
