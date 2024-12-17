@@ -12,8 +12,8 @@ class BlogApiController extends Controller
     public function edit(Request $_request): void
     {
         $this->isGranted(BlogVoter::EDIT, $_request->getBody());
-        $this->container->blog->interact($_request->getBody()['id']);
-        $this->container->blog->update([
+        $this->container->blogService->interact($_request->getBody()['id']);
+        $this->container->blogService->update([
             'title' => $_request->getBody()['title'],
             'content' => $_request->getBody()['content']
         ]);
@@ -27,8 +27,8 @@ class BlogApiController extends Controller
     {
         $this->isGranted(BlogVoter::DELETE, $_request->getBody());
 
-        $this->container->blog->interact((int) $_request->getBody()['id']);
-        $this->container->blog->delete();
+        $this->container->blogService->interact((int) $_request->getBody()['id']);
+        $this->container->blogService->delete();
 
         $this->container->flash->success("L'article a bien été suprimé");
         $this->redirect('/blog');
@@ -37,7 +37,7 @@ class BlogApiController extends Controller
     #[Route('/api/blog/create', 'POST', 'auth')]
     public function create(Request $_request): void
     {
-        $this->container->blog->create([
+        $this->container->blogService->create([
             'title' => $_request->getBody()['title'],
             'content' => $_request->getBody()['content'],
             'thumbnail' => 'https://placehold.co/600x400',
