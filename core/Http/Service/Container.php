@@ -2,17 +2,18 @@
 
 namespace Core\Http\Service;
 
-use App\Registry\RegisterServiceContainer;
+use App\Registry\RegisterContainer;
+use Core\Http\Service\RegisterServiceContainer;
+use Core\Http\Test;
 
 class Container extends RegisterServiceContainer
 {
     public function __construct()
     {
         $container = new ServiceContainer();
-        $this->registerService($container);
-        $this->registerRepository($container);
-        $this->registerOther($container);
         $this->registerListener();
+        $this->registerService($container);
+        $this->registerOther($container);
     }
 
     public static function get(): RegisterServiceContainer

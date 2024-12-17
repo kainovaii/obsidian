@@ -1,9 +1,11 @@
 <?php
 namespace App\Domain\Auth;
 
+use Core\Http\Register;
 use Core\Repository;
 use Illuminate\Support\Collection;
 
+#[Register('userRepository', UserRepository::class)]
 class UserRepository extends Repository {
     public function getAll(): Collection
     {

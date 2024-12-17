@@ -20,8 +20,8 @@ class LoginListener
         $user = $event->getUser();
         if ($user instanceof UserInterface)
         {
-            Container::get()->user->interate($user->getUserIdentifier());
-            Container::get()->user->update(['last_login' => new \DateTimeImmutable(), 'login_attempt' => 0]);
+            Container::get()->userService->interact($user->getUserIdentifier());
+            Container::get()->userService->update(['last_login' => new \DateTimeImmutable(), 'login_attempt' => 0]);
             Container::get()->csrf->removeToken();
         }
     }
@@ -31,13 +31,13 @@ class LoginListener
         $user = $event->getUser();
         if ($user instanceof \stdClass)
         {
-            Container::get()->user->interate($user->username);
+            Container::get()->userService->interact($user->username);
 
             if ($user->login_attempt >= 3)
             {
-                Container::get()->user->update(['status' => 0]);
+                Container::get()->userService->update(['status' => 0]);
             } else {
-                Container::get()->user->update(['login_attempt' => $user->login_attempt+1]);
+                Container::get()->userService->update(['login_attempt' => $user->login_attempt+1]);
             }
         }
     }

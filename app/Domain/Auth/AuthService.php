@@ -6,7 +6,9 @@ use App\Domain\Auth\Event\LoginFailureEvent;
 use App\Domain\Auth\Event\LoginSuccessEvent;
 use Core\Http\Request;
 use Core\Http\Service\Container;
+use Core\Http\Register;
 
+#[Register('authService', AuthService::class)]
 class AuthService extends UserRepository 
 {
     public function authenticate(Request $_resquest): bool

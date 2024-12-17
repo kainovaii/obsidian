@@ -26,4 +26,9 @@ class LoginSuccessEvent extends Event
     {
         return Container::get()->loggedUser;
     }
+
+    public function getContainer(): Container
+    {
+        return Container::get();
+    }
 }

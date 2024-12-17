@@ -3,9 +3,9 @@
 namespace App\Domain\Blog;
 
 use Core\Http\Service\Service;
-use Core\Http\Test;
+use Core\Http\Register;
 
-#[Test('testRepo', BlogService::class)]
+#[Register('blogService', BlogService::class)]
 class BlogService extends Service
 {
     private int $id;
