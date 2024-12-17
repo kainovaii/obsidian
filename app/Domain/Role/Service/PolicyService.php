@@ -2,9 +2,11 @@
 
 namespace App\Domain\Role\Service;
 
+use Core\Http\Register;
 use Core\Http\Service\Container;
 use Illuminate\Database\Capsule\Manager;
 
+#[Register('policyService', PolicyService::class)]
 class PolicyService extends Manager
 {
     private string $name;

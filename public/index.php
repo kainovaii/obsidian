@@ -9,7 +9,8 @@ use Core\Http\Register;
 
 define('ROOT_DIR', dirname(__DIR__));
 
-require_once ROOT_DIR .
+require_once 
+    ROOT_DIR .
     DIRECTORY_SEPARATOR . 'vendor' .
     DIRECTORY_SEPARATOR . 'autoload.php';
 

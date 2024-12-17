@@ -2,8 +2,10 @@
 
 namespace App\Domain\Role\Service;
 
+use Core\Http\Register;
 use Illuminate\Database\Capsule\Manager;
 
+#[Register('roleService', RoleService::class)]
 class RoleService extends Manager
 {
     private string $name;
