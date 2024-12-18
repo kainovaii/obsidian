@@ -6,6 +6,7 @@ use App\Domain\Auth\Event\LoginSuccessEvent;
 use App\Domain\Auth\Event\UserBannedEvent;
 use App\Domain\Auth\Listener\LoginListener;
 use App\Registry\RegisterContainer;
+use Core\File;
 use Core\Http\Listener\EventDispatcher;
 use Core\Http\Listener\ListenerProvider;
 use Core\Http\Security\Csrf;
@@ -23,6 +24,7 @@ class RegisterServiceContainer extends RegisterContainer
     public static array $_instance = [];
     public Csrf $csrf;
     public Flash $flash;
+    public File $file;
     public SessionManager $session;
     public UserInterface $loggedUser;
     public EventDispatcher $dispatcher;
@@ -80,6 +82,7 @@ class RegisterServiceContainer extends RegisterContainer
         $this->flash = $container->get(Flash::class);
         $this->csrf = $container->get(Csrf::class);
         $this->loggedUser = $container->get(LoggedUser::class);
+        $this->file = $container->get(File::class);
     }
 
     public function registerListener(): void
