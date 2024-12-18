@@ -40,7 +40,7 @@ if [ $TYPE ]; then
     fi
         if [ $TYPE == 'DEV' ]; then
         read -p "⚡️ Enter text: " TEXT
-        git add -u
+        git add --all
         git commit -m "👨‍💻 Dev ($TEXT)"
         git push -u origin master
         echo "⚡️ Task complete"

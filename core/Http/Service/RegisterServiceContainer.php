@@ -5,11 +5,15 @@ use App\Domain\Auth\Event\LoginFailureEvent;
 use App\Domain\Auth\Event\LoginSuccessEvent;
 use App\Domain\Auth\Event\UserBannedEvent;
 use App\Domain\Auth\Listener\LoginListener;
+use App\Http\Security\AdminVoter;
+use App\Http\Security\BlogVoter;
 use App\Registry\RegisterContainer;
 use Core\Http\Listener\EventDispatcher;
 use Core\Http\Listener\ListenerProvider;
 use Core\Http\Security\Csrf;
 use Core\Http\Register;
+use Core\Http\Security\Voter\Permission;
+use Core\Http\Security\voter\RegisterVoter;
 use Core\Http\User\LoggedUser;
 use Core\Http\Service\ServiceContainer;
 use Core\Http\User\UserInterface;
@@ -48,8 +52,22 @@ class RegisterServiceContainer extends RegisterContainer
             }
         }
     }
+
+    public function registerVoter(Permission $permission): void
+    {
+        $folderPath = dirname(__DIR__, 3) . '/app/Http/Security';
+        $classes = getClassesWithNamespacesRecursively($folderPath);
+        foreach ($classes as $class)
+        {
+            $finished = new $class();
+            $reflection = new \ReflectionClass($finished);
+            $attributes = $reflection->getAttributes(Register::class);
+            
+            $permission->addVoter($finished);  
+        }
+    }
     
-    public function registerOther(ServiceContainer $container)
+    public function registerOther(ServiceContainer $container): void
     {
         $this->session = $container->get(SessionManager::class);
         $this->flash = $container->get(Flash::class);
