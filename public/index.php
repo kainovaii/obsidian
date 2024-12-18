@@ -3,9 +3,6 @@
 use App\Http\Middleware\AuthMiddleware;
 use App\Http\Middleware\DefaultMiddleware;
 use Core\Application;
-use Core\Http\Service\Container;
-use Core\Http\Service\ServiceContainer;
-use Core\Http\Register;
 
 define('ROOT_DIR', dirname(__DIR__));
 
