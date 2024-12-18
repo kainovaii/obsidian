@@ -4,7 +4,6 @@ namespace App\Domain\Blog;
 
 use Core\Http\Register;
 use Core\Repository;
-use Illuminate\Database\Capsule\Manager;
 use Illuminate\Support\Collection;
 
 #[Register('blogRepository', BlogRepository::class)]

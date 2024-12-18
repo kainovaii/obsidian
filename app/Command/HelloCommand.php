@@ -23,15 +23,12 @@ class HelloCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
         $arg1 = $input->getArgument('bool');
-
-        
         if ($arg1 === 'yes')
         {
             $io->success('Hello');
         } else {
             $io->error('Not hello');
         }
-
         return COMMAND::SUCCESS;
     }
 }
