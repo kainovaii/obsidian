@@ -2,7 +2,7 @@
 
 namespace tests\helpers;
 
-use Core\Http\Security\VoterInterface;
+use Core\Http\Security\Voter\VoterInterface;
 use Core\Http\User\UserInterface;
 
 class VoterRole implements VoterInterface
@@ -18,5 +18,6 @@ class VoterRole implements VoterInterface
         {
             return true;
         }
+        return false;
     }
 }
