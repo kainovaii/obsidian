@@ -8,6 +8,7 @@ use App\Domain\Auth\Listener\LoginListener;
 use App\Http\Security\AdminVoter;
 use App\Http\Security\BlogVoter;
 use App\Registry\RegisterContainer;
+use Core\Command\MigrateCommand;
 use Core\Http\Listener\EventDispatcher;
 use Core\Http\Listener\ListenerProvider;
 use Core\Http\Security\Csrf;
@@ -19,6 +20,7 @@ use Core\Http\Service\ServiceContainer;
 use Core\Http\User\UserInterface;
 use Core\Session\Flash;
 use Core\Session\SessionManager;
+use Symfony\Component\Console\Application;
 
 class RegisterServiceContainer extends RegisterContainer
 {
@@ -65,6 +67,21 @@ class RegisterServiceContainer extends RegisterContainer
             
             $permission->addVoter($finished);  
         }
+    }
+
+    public function registerCommand(Application $command)
+    {
+        $folderPath = dirname(__DIR__, 3) . '/app/Command';
+        $classes = getClassesWithNamespacesRecursively($folderPath);
+        foreach ($classes as $class)
+        {
+            $finished = new $class();
+            $reflection = new \ReflectionClass($finished);
+            $attributes = $reflection->getAttributes(Register::class);
+            
+            $command->add($finished);
+        }
+        
     }
     
     public function registerOther(ServiceContainer $container): void

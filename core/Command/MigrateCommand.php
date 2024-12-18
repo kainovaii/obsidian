@@ -1,7 +1,7 @@
 <?php
 namespace Core\Command;
 
-use App\Registry\RegisterCommand;
+use Core\RegisterCommand;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;

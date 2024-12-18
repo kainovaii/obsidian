@@ -1,6 +1,7 @@
 <?php
-namespace App\Registry;
+namespace Core;
 use Core\Command\MigrateCommand;
+use Core\Http\Service\Container;
 use Symfony\Component\Console\Application;
 
 class RegisterCommand {
@@ -8,6 +9,8 @@ class RegisterCommand {
     {
         $commmandManager = new Application();
         $commmandManager->add(new MigrateCommand());
+        // Auto register command
+        Container::get()->registerCommand($commmandManager);
         $commmandManager->run();
     }
 }
