@@ -2,7 +2,7 @@
     "name": "kainovaii/obsidian",
     "description": "Lorem ipsum dolor sit amet, consectetur adipis",
     "type": "project",
-    "version": "1.0",
+    "version": "2.0",
     "autoload": {
         "files": [
             "./core/Helpers.php"
@@ -16,7 +16,7 @@
     "authors": [
         {
             "name": "KainoVaii",
-            "email": "KainoVaii@proton.me"
+            "email": "hello@kainovaii.cloud"
         }
     ],
     "minimum-stability": "dev",
@@ -27,8 +27,6 @@
         "vlucas/phpdotenv": "^5.6@dev",
         "filp/whoops": "^2.16",
         "symfony/filesystem": "7.2.x-dev",
-        "algolia/algoliasearch-client-php": "4.0",
-        "symfony/error-handler": "7.2.x-dev",
         "psr/event-dispatcher": "^1.0@dev"
     },
     "require-dev": {
