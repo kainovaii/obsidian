@@ -75,8 +75,7 @@ final class Application
 
     public function registerController($app): void
     {
-        $folderPath = dirname(__DIR__, 1) . '/app/Http/Controller'; // Spécifiez le chemin de votre dossier
-
+        $folderPath = dirname(__DIR__, 1) . '/app/Http/Controller';
         try {
             $classes = getClassesWithNamespacesRecursively($folderPath);
             foreach ($classes as $class)
@@ -92,14 +91,30 @@ final class Application
 
     public function registerControllerApi($app): void
     {
-        $folderPath = dirname(__DIR__, 1) . '/app/Http/Api'; // Spécifiez le chemin de votre dossier
-
+        $folderPath = dirname(__DIR__, 1) . '/app/Http/Api';
         try {
             $classes = getClassesWithNamespacesRecursively($folderPath);
             foreach ($classes as $class)
             {
                 $test = new $class();
                 $this->registerRoute($app, $test);
+            }
+            
+        } catch (\Exception $e) {
+            echo 'Erreur : ' . $e->getMessage();
+        }
+    }
+
+    public function registerMiddleware($app)
+    {
+        $folderPath = dirname(__DIR__, 1) . '/app/Http/Middleware';
+        try {
+            $classes = getClassesWithNamespacesRecursively($folderPath);
+            foreach ($classes as $class)
+            {
+                $finalClass = new $class();
+                $middlewareName = strtolower(explode('Middleware',  getString($class, '\\'))[0]);
+                $app->middlewares->add($middlewareName, get_class($finalClass));
             }
             
         } catch (\Exception $e) {

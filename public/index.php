@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Middleware\AuthMiddleware;
-use App\Http\Middleware\DefaultMiddleware;
 use Core\Application;
 
 define('ROOT_DIR', dirname(__DIR__));
@@ -23,8 +21,7 @@ $app = new Application();
 | Register middlewares
 |--------------------------------------------------------------------------
 */
-$app->middlewares->add('auth', AuthMiddleware::class);
-$app->middlewares->add('default', DefaultMiddleware::class);
+$app->registerMiddleware($app);
 
 /*
 |--------------------------------------------------------------------------

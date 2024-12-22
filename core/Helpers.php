@@ -46,3 +46,17 @@ function getClassesWithNamespacesRecursively(string $folderPath): array
     }
     return $classes;
 }
+
+function getString($string, $delimiter) {
+    // Find the position of the last occurrence of /
+    $position = strrpos($string, $delimiter);
+    
+    // Check if / is found in the string
+    if ($position !== false) {
+        // Get the substring starting from the character after the last /
+        return substr($string, $position + 1);
+    } else {
+        // If / is not found, return the original string
+        return $string;
+    }
+}
